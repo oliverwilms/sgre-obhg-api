@@ -1,0 +1,5 @@
+set file = "C:\InterSystems\IRISHealth\mgr\user\obhg_swagger.json"
+set obj = ##class(%DynamicAbstractObject).%FromJSONFile(file)
+do ##class(%REST.API).CreateApplication("obhg",.obj,,.new,.error)
+zw new
+zw error
