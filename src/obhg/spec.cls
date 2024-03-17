@@ -1,0 +1,97 @@
+Class obhg.spec Extends %REST.Spec [ ProcedureBlock ]
+{
+
+XData OpenAPI [ MimeType = application/json ]
+{
+{
+  "info":{
+    "version":"1.0.0",
+    "title":"request",
+    "description":"The API for the workflow of obhg request"
+  },
+  "paths":{
+    "/facilities":{
+      "get":{
+        "tags":[
+          "Facility"
+        ],
+        "description":"returns all facilities filtered eventually by a state",
+        "operationId":"getFacilities",
+        "parameters":[
+          {
+            "in":"query",
+            "name":"state",
+            "description":"state",
+            "type":"string"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"Facilities"
+          }
+        }
+      },
+      "post":{
+        "description":"",
+        "summary":"addFacility",
+        "tags":[
+          "Request"
+        ],
+        "operationId":"postFacility",
+        "deprecated":false,
+        "produces":[
+          "application/json"
+        ],
+        "consumes":[
+          "application/json"
+        ],
+        "parameters":[
+          {
+            "name":"Content-Type",
+            "in":"header",
+            "required":false,
+            "enum":[
+              "application/json"
+            ],
+            "type":"string",
+            "description":""
+          },
+          {
+            "name":"body",
+            "in":"body",
+            "required":true,
+            "description":"Obligation messages are comprised of segments grouped together.",
+            "schema":{
+              "$ref":"#/definitions/Facility"
+            }
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"successfully sent request"
+          }
+        }
+      }
+    }
+  },
+  "definitions":{
+    "Facility":{
+      "type":"object",
+      "properties":{
+        "code":{
+          "type":"string"
+        },
+        "name":{
+          "type":"string"
+        },
+        "state":{
+          "type":"string"
+        }
+      }
+    }
+  },
+  "swagger":"2.0"
+}
+}
+
+}
