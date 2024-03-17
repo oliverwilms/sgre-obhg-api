@@ -1,11 +1,4 @@
 {
-  "openapi": "2.0.0",
-  "servers": [
-    {
-      "description": "API for obhg request",
-      "url": "https://hscvdev.obhg.com/"
-    }
-  ],
   "info": {
     "version": "1.0.0",
     "title": "request",
@@ -24,9 +17,7 @@
             "in": "query",
             "name": "state",
             "description": "state",
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
@@ -93,5 +84,6 @@
         }
       }
     }
-  }
+  },
+  "swagger": "2.0"
 }
