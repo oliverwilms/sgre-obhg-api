@@ -22,17 +22,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Facilities",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "Facility"
-                  }
-                }
-              }
-            }
+            "description": "Facilities"
           }
         }
       },
@@ -44,42 +34,6 @@
         "responses": {
           "200": {
             "description": "successfully sent request"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Request"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Facility": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "state": {
-            "type": "string"
-          }
-        }
-      },
-      "Request": {
-        "type": "object",
-        "properties": {
-          "documentTypes": {
-            "type": "array",
-            "items": "type:string"
           }
         }
       }
