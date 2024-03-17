@@ -1,0 +1,97 @@
+{
+  "openapi": "2.0.0",
+  "servers": [
+    {
+      "description": "API for obhg request",
+      "url": "https://hscvdev.obhg.com/"
+    }
+  ],
+  "info": {
+    "version": "1.0.0",
+    "title": "request",
+    "description": "The API for the workflow of obhg request"
+  },
+  "paths": {
+    "/facilities": {
+      "get": {
+        "tags": [
+          "Facility"
+        ],
+        "description": "returns all facilities filtered eventually by a state",
+        "operationId": "getFacilities",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "state",
+            "description": "state",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Facilities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "Facility"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Request"
+        ],
+        "operationId": "request",
+        "responses": {
+          "200": {
+            "description": "successfully sent request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Facility": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        }
+      },
+      "Request": {
+        "type": "object",
+        "properties": {
+          "documentTypes": {
+            "type": "array",
+            "items": "type:string"
+          }
+        }
+      }
+    }
+  }
+}
