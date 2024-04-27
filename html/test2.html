@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: 200px 100px 100px 200px 100px 100px;
+                grid-gap: 5rem;
+            }
+            .title1 {
+                grid-column-start: 1;
+                grid-column-end: 4;
+                background-color: yellow;
+            }
+            .title2 {
+                grid-column-start: 4;
+                grid-column-end: 7;
+                background-color: blue;
+            }
+            .label1 {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                background-color: green;
+            }
+            .label2 {
+                grid-column-start: 4;
+                grid-column-end: 5;
+                background-color: violet;
+            }
+            .input1 {
+                grid-column-start: 2;
+                grid-column-end: 4;
+                background-color: gray;
+            }
+            .input2 {
+                grid-column-start: 5;
+                grid-column-end: 7;
+                background-color: rgb(245, 245, 245);
+            }
+            .label3 {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                background-color: green;
+            }
+            .label4 {
+                grid-column-start: 4;
+                grid-column-end: 6;
+                background-color: violet;
+            }
+            .number1{
+                grid-column-start: 3;
+                grid-column-end: 4;
+                background-color: rgb(95, 23, 23)
+            }
+            .number2 {
+                grid-column-start: 6;
+                grid-column-end: 6;
+                background-color: rgb(245, 245, 245)
+            }
+            .box {
+                border: 1px solid black;
+                padding: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title1 box">Title 1</div>
+            <div class="title2 box">Title 2</div>
+            <div class="label1 box">label1</div>
+            <div class="input1 box"><input type="text"></div>
+            <div class="label2 box">label2</div>
+            <div class="input2 box"><input type="text"></div>
+            <div class="label3 box">label3</div>
+            <div class="number1 box">number</div>
+            <div class="label4 box">label4</div>
+            <div class="number2 box">number</div>
+        </div>
+    </body>
+</html>
