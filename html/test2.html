@@ -3,8 +3,8 @@
         <style>
             .container {
                 display: grid;
-                grid-template-columns: 200px 100px 100px 200px 100px 100px;
-                grid-gap: 5rem;
+                grid-template-columns: 200px 100px 100px 10px 200px 100px 100px;
+                grid-gap: 1rem;
             }
             .title1 {
                 grid-column-start: 1;
@@ -12,8 +12,8 @@
                 background-color: yellow;
             }
             .title2 {
-                grid-column-start: 4;
-                grid-column-end: 7;
+                grid-column-start: 5;
+                grid-column-end: 8;
                 background-color: blue;
             }
             .label1 {
@@ -22,8 +22,8 @@
                 background-color: green;
             }
             .label2 {
-                grid-column-start: 4;
-                grid-column-end: 5;
+                grid-column-start: 5;
+                grid-column-end: 6;
                 background-color: violet;
             }
             .input1 {
@@ -32,8 +32,8 @@
                 background-color: gray;
             }
             .input2 {
-                grid-column-start: 5;
-                grid-column-end: 7;
+                grid-column-start: 6;
+                grid-column-end: 8;
                 background-color: rgb(245, 245, 245);
             }
             .label3 {
@@ -42,38 +42,78 @@
                 background-color: green;
             }
             .label4 {
-                grid-column-start: 4;
-                grid-column-end: 6;
+                grid-column-start: 5;
+                grid-column-end: 7;
                 background-color: violet;
             }
             .number1{
                 grid-column-start: 3;
                 grid-column-end: 4;
-                background-color: rgb(95, 23, 23)
+                background-color: rgb(136, 133, 133)
             }
             .number2 {
-                grid-column-start: 6;
-                grid-column-end: 6;
+                grid-column-start: 7;
+                grid-column-end: 7;
                 background-color: rgb(245, 245, 245)
             }
             .box {
                 border: 1px solid black;
-                padding: 2rem;
+                padding: 0.5rem;
+            }
+            .input1 input,
+            .input2 input {
+                width: 6rem;
+            }
+            .input1 input{
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-percent" viewBox="0 0 16 16"><path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0M4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></svg>');
+                padding-right: 1rem;
+                background-repeat: no-repeat;
+                background-position: right;
+                text-align: right;
+            }
+            .total {
+                border-top: 6px black solid;
             }
         </style>
+        <script type="text/javascript">
+            function format(event) {
+                // perhaps more....
+                if ([38,40,37,39].includes(event.keyCode)) {
+                    return;
+                }
+                const element = document.getElementById("input2");
+                let val = element.value;
+                vals = val.split('.')
+                console.log(vals)
+                val = vals[0].replace(/[^0-9\,\.]/g, "");
+                val = Number(val)
+                if (element.value.indexOf('.') || vals.length == 2) {
+                    element.value = val.toLocaleString('en-US') + "." + vals[1];
+                } else {
+                    element.value = val.toLocaleString('en-US');
+                }
+                element.value = val.toLocaleString('en-US');
+            }
+        </script>
     </head>
     <body>
+        <form id="form">
         <div class="container">
             <div class="title1 box">Title 1</div>
             <div class="title2 box">Title 2</div>
             <div class="label1 box">label1</div>
             <div class="input1 box"><input type="text"></div>
             <div class="label2 box">label2</div>
-            <div class="input2 box"><input type="text"></div>
+            <div class="input2 box"><input type="text"  onkeyup="format(event)" id="input2"></div>
             <div class="label3 box">label3</div>
             <div class="number1 box">number</div>
             <div class="label4 box">label4</div>
             <div class="number2 box">number</div>
+            <div class="label3 box">label3</div>
+            <div class="number1 box total">number</div>
+            <div class="label4 box">label4</div>
+            <div class="number2 box total">number</div>
         </div>
+    </form>
     </body>
-</html>
+</html
